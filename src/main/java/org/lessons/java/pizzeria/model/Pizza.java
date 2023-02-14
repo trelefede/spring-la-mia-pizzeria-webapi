@@ -16,13 +16,28 @@ public class Pizza {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(name = "name", nullable = false)
 	private String name;
+
+	@Column(name = "description", nullable = true)
 	private String description;
+
+	@Column(name = "price", nullable = false)
 	private BigDecimal price;
 
 	@Column(name = "image", nullable = true)
 	private String imgUrl;
 
+	// constructor
+	public Pizza(Integer id, String name, String description, BigDecimal price, String imgUrl) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.imgUrl = imgUrl;
+	}
+
+	// getters and setters
 	public String getName() {
 		return name;
 	}
