@@ -6,10 +6,10 @@
  </head>
  <body>
  <div class="container">
- 	<div class="row">
  	<h1>Elenco Pizze</h1>
+ 	<div class="row">
  		<div class="col">
- 			<table class="table" th:each="pizza : ${result}">
+ 			<table class="table">
 			  <thead>
 			    <tr>
 			      <th scope="col">Nome</th>
@@ -19,11 +19,11 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <th th:text="pizza.getTitle()"></th>
-			      <td th:text="pizza.getDescription()"></td>
-			      <td th:text="pizza.getImgUrl"></td>
-			      <td th:text="pizza.getPrice"></td>
+			    <tr th:each="pizza : ${result}">
+			      <td th:text="${pizza.getName()}"></td>
+			      <td th:text="${pizza.getDescription()}"></td>
+			      <td><img th:src="${pizza.getImgUrl}"></img></td>
+			      <td th:text="${pizza.getPrice}"></td>
 			    </tr>
 			  </tbody>
 			</table>
