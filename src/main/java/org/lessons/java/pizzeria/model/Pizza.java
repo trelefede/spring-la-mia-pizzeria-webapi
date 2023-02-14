@@ -28,15 +28,6 @@ public class Pizza {
 	@Column(name = "image", nullable = true)
 	private String imgUrl;
 
-	// constructor
-	public Pizza(Integer id, String name, String description, BigDecimal price, String imgUrl) {
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.price = price;
-		this.imgUrl = imgUrl;
-	}
-
 	// getters and setters
 	public String getName() {
 		return name;
