@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org">
+ <head>
+ <meta charset="UTF-8">
+ <title>pizze</title>
+ </head>
+ <body>
+ <div class="container">
+ 	<div class="row">
+ 	<h1>Elenco Pizze</h1>
+ 		<div class="col">
+ 			<table class="table" th:each="pizza : ${result}">
+			  <thead>
+			    <tr>
+			      <th scope="col">Nome</th>
+			      <th scope="col">Descrizione</th>
+			      <th scope="col">Foto</th>
+			      <th scope="col">Prezzo</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th th:text="pizza.getTitle()"></th>
+			      <td th:text="pizza.getDescription()"></td>
+			      <td th:text="pizza.getImgUrl"></td>
+			      <td th:text="pizza.getPrice"></td>
+			    </tr>
+			  </tbody>
+			</table>
+ 		</div>
+ 	</div>
+ </div>
+
+ </body>
+ </html>
