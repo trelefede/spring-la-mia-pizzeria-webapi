@@ -9,7 +9,12 @@
  	<h1>Elenco Pizze</h1>
  	<div class="row">
  		<div class="col">
- 			<table class="table">
+ 		<form action="">
+ 			<label for="fname">Cerca la tua pizza:</label>
+			<input type="text" name="pizza">  
+			<input type="submit" value="Cerca">
+ 		</form>
+ 			<table class="table" th:if="${!result.isEmpty()}">
 			  <thead>
 			    <tr>
 			      <th scope="col">Nome</th>
@@ -28,6 +33,7 @@
 			    </tr>
 			  </tbody>
 			</table>
+			<div th:unless="${result.isEmpty()}">Nessuna pizza</div>
  		</div>
  	</div>
  </div>
