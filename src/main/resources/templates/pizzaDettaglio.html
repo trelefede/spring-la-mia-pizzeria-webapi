@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org">
+ <head>
+ <meta charset="UTF-8">
+ <title>Dettaglio Pizza</title>
+ </head>
+ <body>
+  <div class="container">
+ 	<h1>Dettaglio Pizza</h1>
+ 	<div class="row">
+ 		<div class="col">
+ 			<h6 th:text="pizza.getName()"></h6>
+ 			<img th:alt="pizza.getName()" th:src="pizza.getImgUrl()">
+ 			<p th:text="pizza.getDescription()"></p>
+ 			<p th:text="pizza.getPrice()"></p>
+ 		</div>
+ 	</div>
+ </div>
+
+ </body>
+ </html>
