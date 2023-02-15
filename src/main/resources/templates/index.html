@@ -24,7 +24,7 @@
 			      <td th:text="${pizza.getDescription()}"></td>
 			      <td><img th:src="${pizza.getImgUrl}"></img></td>
 			      <td th:text="${pizza.getPrice}"></td>
-			      <td><button><a th:href="@{/pizza/{id}(id=${pizza.getId()})}">Visualizza</a></button></td>
+			      <td><button><a th:href="@{/pizze/{id}(id=${pizza.getId()})}">Visualizza</a></button></td>
 			    </tr>
 			  </tbody>
 			</table>

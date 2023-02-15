@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -23,5 +24,12 @@ public class IndexController {
 		List<Pizza> result = pizze.findAll();
 		model.addAttribute("result", result);
 		return "index";
+	}
+
+	@GetMapping("/{id}")
+	public String showPizza(@PathVariable("id") Integer id, Model model) {
+		Pizza pizza = pizze.getReferenceById(id);
+		model.addAttribute("pizza", pizza);
+		return "pizzaDettaglio";
 	}
 }
