@@ -1,24 +1,19 @@
 <!DOCTYPE html>
  <html xmlns:th="http://www.thymeleaf.org">
  <head>
- <meta charset="UTF-8">
- <title>pizze</title>
+	 <div th:replace="~{fragments :: head}"></div>
+	 <title>pizze</title>
  </head>
  <body>
+ 
+ <div th:replace="~{fragments :: navbar}"></div>
+ 
  <div class="container">
- 	<h1>Elenco Pizze</h1>
- 	<div class="row">
- 		<div class="col-4">
- 			<form action="">
-	 			<label for="fname">Cerca la tua pizza:</label>
-				<input type="text" name="pizza">  
-				<input type="submit" value="Cerca">
- 			</form>
- 		</div>
- 		<div class="col-4">
- 			<button><a th:href="@{/pizze/create}">Crea pizza</a></button>
- 		</div>
- 	</div>
+ 
+ 	<h1 class="text-center mt-4">Elenco Pizze</h1>
+ 	
+ 	<div th:replace="~{fragments :: search}"></div>
+ 	
  	<div class="row">
  		<div class="col">
  			<table class="table" th:if="${!result.isEmpty()}">
@@ -34,7 +29,7 @@
 			    <tr th:each="pizza : ${result}">
 			      <td th:text="${pizza.getName()}"></td>
 			      <td th:text="${pizza.getDescription()}"></td>
-			      <td><img th:src="${pizza.getImgUrl}"></img></td>
+			      <td><img class="img-thumbnail" width="150" height="150" th:src="${pizza.getImgUrl}"></img></td>
 			      <td th:text="${pizza.getPrice}"></td>
 			      <td><button><a th:href="@{/pizze/{id}(id=${pizza.getId()})}">Visualizza</a></button></td>
 			    </tr>
