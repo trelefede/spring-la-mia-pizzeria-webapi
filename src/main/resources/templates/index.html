@@ -35,7 +35,7 @@
 			    </tr>
 			  </tbody>
 			</table>
-			<div th:unless="${result.isEmpty()}">Nessuna pizza</div>
+			<div th:if="${result.isEmpty()}">Nessuna pizza</div>
  		</div>
  	</div>
  </div>
