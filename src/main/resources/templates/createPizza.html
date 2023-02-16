@@ -13,19 +13,39 @@
  				id="pizza-form"
  				th:object="${pizza}"
  				th:action="@{/pizze/create}"
- 				method="post"
- 			>
+ 				method="post">
+ 				
  				<label for="name">Nome</label>
- 				<input type="text" id="name" th:field="*{name}">
+ 				<input type="text" id="name" th:field="*{name}" th:errorClass="is-invalid">
+ 				<div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
+ 					<ul>
+ 						<li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+ 					</ul>
+ 				</div>
  				
  				<label for="image">Url immagine</label>
- 				<input type="text" id="image" th:field="*{imgUrl}">
+ 				<input type="text" id="image" th:field="*{imgUrl}" th:errorClass="is-invalid">
+ 				<div th:if="${#fields.hasErrors('imgUrl')}" class="invalid-feedback">
+ 					<ul>
+ 						<li th:each="err : ${#fields.errors('imgUrl')}" th:text="${err}"></li>
+ 					</ul>
+ 				</div>
  				
  				<label for="description">Descrizione</label>
- 				<input type="text" id="description" th:field="*{description}">
+ 				<input type="text" id="description" th:field="*{description}" th:errorClass="is-invalid">
+ 				<div th:if="${#fields.hasErrors('description')}" class="invalid-feedback">
+ 					<ul>
+ 						<li th:each="err : ${#fields.errors('description')}" th:text="${err}"></li>
+ 					</ul>
+ 				</div>
  				
  				<label for="price">Prezzo</label>
- 				<input type="text" id="price" th:field="*{price}">
+ 				<input type="text" id="price" th:field="*{price}" th:errorClass="is-invalid">
+ 				<div th:if="${#fields.hasErrors('price')}" class="invalid-feedback">
+ 					<ul>
+ 						<li th:each="err : ${#fields.errors('price')}" th:text="${err}"></li>
+ 					</ul>
+ 				</div>
  				
  				<button type="submit">Salva</button>
  			</form>
