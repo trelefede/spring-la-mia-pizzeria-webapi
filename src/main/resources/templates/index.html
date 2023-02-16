@@ -8,12 +8,19 @@
  <div class="container">
  	<h1>Elenco Pizze</h1>
  	<div class="row">
+ 		<div class="col-4">
+ 			<form action="">
+	 			<label for="fname">Cerca la tua pizza:</label>
+				<input type="text" name="pizza">  
+				<input type="submit" value="Cerca">
+ 			</form>
+ 		</div>
+ 		<div class="col-4">
+ 			<button><a th:href="@{/pizze/create}">Crea pizza</a></button>
+ 		</div>
+ 	</div>
+ 	<div class="row">
  		<div class="col">
- 		<form action="">
- 			<label for="fname">Cerca la tua pizza:</label>
-			<input type="text" name="pizza">  
-			<input type="submit" value="Cerca">
- 		</form>
  			<table class="table" th:if="${!result.isEmpty()}">
 			  <thead>
 			    <tr>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org">
+ <head>
+ <meta charset="UTF-8">
+ <title>Crea pizza</title>
+ </head>
+ <body>
+ <div class="container">
+ 	<h1>Crea nuova pizza</h1>
+ 	<div class="row">
+ 		<div class="col">
+ 			<form 
+ 				id="pizza-form"
+ 				th:object="${pizza}"
+ 				th:action="@{/pizze/create}"
+ 				method="post"
+ 			>
+ 				<label for="name">Nome</label>
+ 				<input type="text" id="name" th:field="*{name}">
+ 				
+ 				<label for="image">Url immagine</label>
+ 				<input type="text" id="image" th:field="*{imgUrl}">
+ 				
+ 				<label for="description">Descrizione</label>
+ 				<input type="text" id="description" th:field="*{description}">
+ 				
+ 				<label for="price">Prezzo</label>
+ 				<input type="text" id="price" th:field="*{price}">
+ 				
+ 				<button type="submit">Salva</button>
+ 			</form>
+ 		</div>
+ 	</div>
+ </div>
+
+ </body>
+ </html>
