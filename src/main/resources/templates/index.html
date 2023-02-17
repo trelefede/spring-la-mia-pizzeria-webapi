@@ -31,8 +31,8 @@
 			      <td th:text="${pizza.getDescription()}"></td>
 			      <td><img class="img-thumbnail" width="150" height="150" th:src="${pizza.getImgUrl}"></img></td>
 			      <td th:text="${pizza.getPrice}"></td>
-			      <td><button class="btn btn-primary"><a class="text-white" th:href="@{/pizze/{id}(id=${pizza.getId()})}">Visualizza</a></button></td>
-			      <td><button class="btn btn-primary"><a class="text-white" th:href="@{/pizze/edit/{id}(id=${pizza.getId()})}">Modifica</a></button></td>
+			      <td><button class="btn btn-primary"><a class="nav-link" th:href="@{/pizze/{id}(id=${pizza.getId()})}">Visualizza</a></button></td>
+			      <td><button class="btn btn-primary"><a class="nav-link" th:href="@{/pizze/edit/{id}(id=${pizza.getId()})}">Modifica</a></button></td>
 			      <td>
 			      	<form action="#" th:action="@{/pizze/delete/{id} (id=${pizza.getId()})}" method="post">
 			      		<button class="btn btn-primary" type="submit" id="submitButton">Elimina</button>
