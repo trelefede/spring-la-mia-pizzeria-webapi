@@ -62,15 +62,30 @@ public class IndexController {
 		}
 
 		pizze.save(formPizza);
+		return "redirect:/pizze";
+	}
 
+	@GetMapping("/edit/{id}")
+	public String editPizza(@PathVariable("id") Integer id, Model model) {
+		model.addAttribute("pizza", pizze.getReferenceById(id));
+		return ("editPizza");
+	}
+
+	@PostMapping("/edit/{id}")
+	public String updatePizza(@Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult,
+			Model model) {
+
+		if (bindingResult.hasErrors()) {
+			return "editPizza";
+		}
+
+		pizze.save(formPizza);
 		return "redirect:/pizze";
 	}
 
 	@PostMapping("/delete/{id}")
 	public String deletePizza(@PathVariable("id") Integer id) {
-
 		pizze.deleteById(id);
-
 		return "redirect:/pizze";
 	}
 }
