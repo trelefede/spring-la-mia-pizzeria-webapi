@@ -16,6 +16,7 @@ import jakarta.validation.constraints.Size;
 @Entity
 @Table(name = "pizze")
 public class Pizza {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -72,6 +73,10 @@ public class Pizza {
 
 	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }
