@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -61,6 +62,14 @@ public class IndexController {
 		}
 
 		pizze.save(formPizza);
+
+		return "redirect:/pizze";
+	}
+
+	@PostMapping("/delete/{id}")
+	public String deletePizza(@PathVariable("id") Integer id) {
+
+		pizze.deleteById(id);
 
 		return "redirect:/pizze";
 	}
