@@ -18,6 +18,7 @@
  			<p th:text="${pizza.getPrice()}"></p>
  		</div>
  	</div>
+ 	<a class="btn btn-primary" th:href="@{/pizze/edit/{id}(id=${pizza.getId()})}"><i class="fa-regular fa-pen-to-square"></i></a>
  </div>
 
  </body>
