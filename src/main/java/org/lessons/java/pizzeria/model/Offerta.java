@@ -2,32 +2,42 @@ package org.lessons.java.pizzeria.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
+@Entity
 public class Offerta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idInteger;
+	private Integer id;
 
-	@NotNull
+	@NotNull(message = "Titolo non può essere nullo")
+	@NotEmpty(message = "Titolo non può essere vuoto")
 	private String titolo;
+
+	@NotNull(message = "Data inizio offerta non può essere nullo")
+	@NotEmpty(message = "Data inizio offerta non può essere vuoto")
 	private LocalDate inizio;
+
+	@NotNull(message = "Data fine offerta non può essere nullo")
+	@NotEmpty(message = "Data fine offerta non può essere vuoto")
 	private LocalDate fine;
 
 	@ManyToOne
 	private Pizza pizza;
 
 	public Integer getIdInteger() {
-		return idInteger;
+		return id;
 	}
 
 	public void setIdInteger(Integer idInteger) {
-		this.idInteger = idInteger;
+		this.id = idInteger;
 	}
 
 	public String getTitolo() {
