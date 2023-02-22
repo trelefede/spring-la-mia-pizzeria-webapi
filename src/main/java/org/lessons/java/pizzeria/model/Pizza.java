@@ -1,12 +1,14 @@
 package org.lessons.java.pizzeria.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -37,6 +39,10 @@ public class Pizza {
 
 	@Column(name = "image", nullable = true)
 	private String imgUrl;
+
+	// relazioni
+	@OneToMany(mappedBy = "pizza")
+	private List<Offerta> offerte;
 
 	// getters and setters
 	public String getName() {
@@ -77,6 +83,14 @@ public class Pizza {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public List<Offerta> getOfferte() {
+		return offerte;
+	}
+
+	public void setOfferte(List<Offerta> offerte) {
+		this.offerte = offerte;
 	}
 
 }
