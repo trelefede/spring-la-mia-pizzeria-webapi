@@ -22,11 +22,9 @@ public class Offerta {
 	private String titolo;
 
 	@NotNull(message = "Data inizio offerta non può essere nullo")
-	@NotEmpty(message = "Data inizio offerta non può essere vuoto")
 	private LocalDate inizio;
 
 	@NotNull(message = "Data fine offerta non può essere nullo")
-	@NotEmpty(message = "Data fine offerta non può essere vuoto")
 	private LocalDate fine;
 
 	@ManyToOne
