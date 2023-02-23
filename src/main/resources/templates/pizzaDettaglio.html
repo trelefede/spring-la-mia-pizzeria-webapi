@@ -18,6 +18,14 @@
  			<p th:text="${pizza.getPrice()}"></p>
  		</div>
  		<div class="col-4">
+ 			<h5>Ingredienti</h5>
+ 			<p th:each="ing : ${pizza.ingredienti}">
+ 				<span th:text="${ing.name}"></span>
+ 				<span th:text="${ing.price}"></span>
+ 			</p>
+ 		</div>
+ 		<div class="col-4">
+ 			<h5>Offerte speciali</h5>
  			<p th:each="offerta : ${pizza.offerte}">
  				<span th:text="${offerta.titolo}"></span>
  			</p>

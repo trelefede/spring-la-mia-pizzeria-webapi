@@ -2,7 +2,9 @@ package org.lessons.java.pizzeria.controller;
 
 import java.util.List;
 
+import org.lessons.java.pizzeria.model.Ingrediente;
 import org.lessons.java.pizzeria.model.Pizza;
+import org.lessons.java.pizzeria.repository.IngredienteRepository;
 import org.lessons.java.pizzeria.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,9 @@ public class IndexController {
 
 	@Autowired
 	private PizzaRepository pizze;
+
+	@Autowired
+	private IngredienteRepository ingredienteRepo;
 
 	@GetMapping
 	public String index(@RequestParam(name = "pizza", required = false) String pizza, Model model) {
@@ -49,6 +54,8 @@ public class IndexController {
 
 	@GetMapping("/create")
 	public String createPizza(Model model) {
+		List<Ingrediente> ingredienti = ingredienteRepo.findAll();
+		model.addAttribute("ingredienti", ingredienti);
 		model.addAttribute("pizza", new Pizza());
 		return "createPizza";
 	}
@@ -67,6 +74,8 @@ public class IndexController {
 
 	@GetMapping("/edit/{id}")
 	public String editPizza(@PathVariable("id") Integer id, Model model) {
+		List<Ingrediente> ingredienti = ingredienteRepo.findAll();
+		model.addAttribute("ingredienti", ingredienti);
 		model.addAttribute("pizza", pizze.getReferenceById(id));
 		return ("editPizza");
 	}
