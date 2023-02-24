@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,4 +44,9 @@ public class IndexApiController {
 		return pizzaRepo.save(pizza);
 	}
 
+	@PutMapping("{id}")
+	public Pizza update(@RequestBody Pizza pizza, @PathVariable("id") Integer id) {
+		Pizza pizzaSelected = pizzaRepo.getReferenceById(id);
+		return pizzaRepo.save(pizza);
+	}
 }

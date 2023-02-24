@@ -2,7 +2,7 @@ package org.lessons.java.pizzeria.model;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +29,7 @@ public class Offerta {
 	@NotNull(message = "Data fine offerta non può essere nullo")
 	private LocalDate fine;
 
-	@JsonBackReference
+	@JsonIgnore
 	@ManyToOne
 	private Pizza pizza;
 

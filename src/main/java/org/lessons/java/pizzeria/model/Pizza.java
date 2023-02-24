@@ -3,8 +3,6 @@ package org.lessons.java.pizzeria.model;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -47,7 +45,6 @@ public class Pizza {
 	@OneToMany(mappedBy = "pizza")
 	private List<Offerta> offerte;
 
-	@JsonBackReference
 	@ManyToMany
 	private List<Ingrediente> ingredienti;
 
